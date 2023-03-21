@@ -27,3 +27,7 @@ class ProductPage(BasePage):
         assert self.is_element_present(*ProductPageLocators.PRODUCT_NAME_IN_BASKET), "The final name is not presented"
         assert (self.browser.find_element(*ProductPageLocators.PRODUCT_NAME_IN_BASKET).text ==
                 self.browser.find_element(*ProductPageLocators.PRODUCT_NAME).text), "The final name product is incorrect"
+
+    def should_not_be_success_message(self):
+        assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE), \
+            "Success message is presented, but should not be"
